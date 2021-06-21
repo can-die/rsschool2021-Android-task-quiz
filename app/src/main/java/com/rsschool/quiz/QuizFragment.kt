@@ -41,9 +41,9 @@ class QuizFragment : Fragment() {
 
         val value = TypedValue ()
 
-        requireActivity().setTheme(themeId)
-        requireActivity().getTheme().resolveAttribute(android.R.attr.statusBarColor, value, true)
-        requireActivity().window.statusBarColor = value.data
+        activity?.setTheme(themeId)
+        activity?.getTheme()?.resolveAttribute(android.R.attr.statusBarColor, value, true)
+        activity?.window?.statusBarColor = value.data
 
         binding?.apply {
             if (quizQuestion?.userAnswer != -1) {
@@ -54,6 +54,8 @@ class QuizFragment : Fragment() {
                 }
             }
         }
+
+        enableButton()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -96,8 +98,6 @@ class QuizFragment : Fragment() {
                 }
                 enableButton()
             }
-
-            enableButton()
         }
     }
 
@@ -115,7 +115,7 @@ class QuizFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        requireActivity().setTheme(themeId)
+        activity?.setTheme(themeId)
         return inflater.inflate(R.layout.fragment_quiz, container, false)
     }
 

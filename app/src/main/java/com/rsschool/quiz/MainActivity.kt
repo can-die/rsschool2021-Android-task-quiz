@@ -25,13 +25,6 @@ class MainActivity : FragmentActivity(), QuizInterface {
         binding.apply {
             viewPager.adapter = adapter
             viewPager.isUserInputEnabled = false
-
-            viewPager.registerOnPageChangeCallback(object :
-                ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                }
-            })
         }
     }
 
@@ -69,7 +62,7 @@ class MainActivity : FragmentActivity(), QuizInterface {
         for (question in getQuestions()) {
             question.userAnswer = -1
         }
-        binding.viewPager.setCurrentItem(0)
+        binding.viewPager.setCurrentItem(0, false)
     }
 
     override fun getResultText(): String {

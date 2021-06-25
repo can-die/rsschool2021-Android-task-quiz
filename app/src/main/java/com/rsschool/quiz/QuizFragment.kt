@@ -68,7 +68,8 @@ class QuizFragment : Fragment() {
         binding?.apply {
             toolbar.title = getString(R.string.fragment_toolbar_title) + " ${index + 1}"
             toolbar.setNavigationOnClickListener {
-                (activity as QuizInterface).goPrev(index)
+                if (activity is QuizInterface)
+                    (activity as QuizInterface).goPrev(index)
             }
 
             prevButton.setOnClickListener { (activity as QuizInterface).goPrev(index) }

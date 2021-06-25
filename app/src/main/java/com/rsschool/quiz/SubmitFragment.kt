@@ -53,6 +53,7 @@ class SubmitFragment : Fragment() {
             }
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,6 +71,7 @@ class SubmitFragment : Fragment() {
         binding = null
         super.onDestroyView()
     }
+
     companion object {
         @JvmStatic
         fun newInstance() = SubmitFragment()
